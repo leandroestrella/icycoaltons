@@ -1,3 +1,3 @@
 var config = {
-  API_KEY : '8G8fsk9mfuf4fHzPEYBBlUmkn7YxjurKyeFVCUKFqtTWLLnntE'
+  API_KEY : 'NqZvydYtbe1hFBQfIqSlD7sfdAJ0uEZ3gJANHTqsUGhSkyFQfN'
 }
