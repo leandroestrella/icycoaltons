@@ -4,6 +4,7 @@
 <head>
     <title>ICY COAL TONS</title>
     <meta charset="utf-8">
+    <link rel="author" href="https://cargocollective.com/leandroestrella">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
@@ -40,7 +41,7 @@
     // Graphics variables
     var container;
     var camera, controls, scene, renderer;
-    var loader, map;
+    var loader, texture;
     var clock = new THREE.Clock();
 
     // Physics variables
@@ -182,14 +183,10 @@
         loader = new THREE.TextureLoader();
         loader.setCrossOrigin('');
 
-        map = loader.load(tumblr, function(texture) {
-                map.wrapS = map.wrapT = THREE.MirroredRepeatWrapping;
+        texture = loader.load(tumblr, function(texture) {
+                texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
                 texture.repeat.set(1, 1);
-                material.map = texture;
                 texture.needsUpdate = true;
-                material.needsUpdate = true;
-                randomShape.material.map = texture;
-                randomShape.material.needsUpdate = true;
             },
             // Function called when download progresses
             function(xhr) {
@@ -225,8 +222,7 @@
         loadTexture();
 
         var material = new THREE.MeshBasicMaterial({
-            shading: THREE.FlatShading,
-            map: map,
+            map: texture,
             side: THREE.DoubleSide,
             transparent: true,
             needsUpdate: true,
