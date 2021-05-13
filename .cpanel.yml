@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/leandroestrella/icycoaltons/
+    - /bin/cp -R * $DEPLOYPATH
+    
